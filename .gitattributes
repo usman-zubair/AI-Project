@@ -1,0 +1,17 @@
+android/** linguist-vendored
+ios/** linguist-vendored
+web/** linguist-vendored
+macos/** linguist-vendored
+linux/** linguist-vendored
+windows/** linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
+*.swift linguist-vendored
+*.kt linguist-vendored
+*.java linguist-vendored
+*.gradle linguist-vendored
+*.cc linguist-vendored
+*.cpp linguist-vendored
+*.h linguist-vendored
+*.m linguist-vendored
