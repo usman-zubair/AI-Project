@@ -52,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _obscurePassword = true;
   bool _isSubmitting = false;
+  bool _submitAttempted = false;
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
   @override
@@ -63,7 +64,9 @@ class _LoginPageState extends State<LoginPage> {
 
   String? _validateEmail(String? value) {
     final v = (value ?? '').trim();
-    if (v.isEmpty) return 'Email is required';
+    if (v.isEmpty) {
+      return _submitAttempted ? 'Email is required' : null;
+    }
     if (v.length > 254) return 'Email is too long';
     if (!_emailRegex.hasMatch(v)) return 'Enter a valid email address';
     return null;
@@ -89,7 +92,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _signIn() async {
-    setState(() => _autovalidateMode = AutovalidateMode.onUserInteraction);
+    setState(() {
+      _autovalidateMode = AutovalidateMode.onUserInteraction;
+      _submitAttempted = true;
+    });
 
     final form = _formKey.currentState;
     if (form == null || !form.validate()) {
