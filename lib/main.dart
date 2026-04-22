@@ -157,10 +157,23 @@ class _LoginPageState extends State<LoginPage> {
                         autofillHints: const [AutofillHints.email],
                         textInputAction: TextInputAction.next,
                         autocorrect: false,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(
                           labelText: 'Email',
                           prefixIcon: Icon(Icons.email_outlined),
                           border: OutlineInputBorder(),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 1.5,
+                            ),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 2,
+                            ),
+                          ),
                         ),
                         validator: _validateEmail,
                       );
